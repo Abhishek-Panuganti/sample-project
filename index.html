@@ -5,7 +5,12 @@
     <title>This is the title of the webpage!</title>
   </head>
   <body>
-    <p>Replace "index.html" with the appropriate path to your index.html file within your Git repository, and replace "your-bucket-name" with the name of your S3 bucket.
-This buildspec.yaml file specifies a single build phase (build), where it runs the command aws s3 cp to copy the index.html file to the specified S3 bucket. Ensure that the IAM role associated with your CodeBuild project has permissions to access the S3 bucket and perform the s3:PutObject action</p>
+    <p>This policy grants the "s3:GetObject" action to anyone ("Principal": "*"), allowing them to read (download) objects from the specified S3 bucket ("Resource": "arn:aws:s3:::your-bucket-name/*").
+
+Remember that making objects publicly readable means anyone with the object's URL can access it. Make sure this aligns with your security requirements and compliance standards.
+
+
+You
+</p>
   </body>
 </html>
