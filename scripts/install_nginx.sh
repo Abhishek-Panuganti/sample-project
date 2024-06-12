@@ -1,4 +1,3 @@
 #!/bin/bash
 ls -al
-sudo apt-get update
-sudo apt-get install nginx -y
+sleep 5
