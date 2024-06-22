@@ -4,8 +4,8 @@ phases:
   install:
     commands:
       - echo Installing NGINX 
-      - sudo apt-get update
-      - sudo apt-get install nginx -y
+      - sudo yum update
+      - amazon-linux-extras install nginx1.12
   build:
     commands:
       - echo build started on $(date) 
