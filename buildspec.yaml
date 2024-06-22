@@ -11,6 +11,16 @@ phases:
       - sudo yum update -y   # Update packages before installation
       - sudo yum install -y python3   # Install Python 3 (default version)
       - python3 --version   # Verify Python installation
+      - echo "Installing Java"
+      - sudo yum update -y   # Update packages before installation
+      - sudo amazon-linux-extras install -y java-openjdk11   # Install OpenJDK 11 (example)
+      - java -version   # Verify Java installation
+      - echo "Installing Node.js"
+      - sudo yum update -y   # Update packages before installation
+      - curl -fsSL https://rpm.nodesource.com/setup_14.x | sudo bash -   # Install NodeSource repository for Node.js 14.x (adjust version as needed)
+      - sudo yum install -y nodejs   # Install Node.js
+      - node -v   # Verify Node.js installation
+
 
     commands:
       - echo build started on $(date) 
