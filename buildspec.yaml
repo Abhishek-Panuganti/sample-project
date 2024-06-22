@@ -15,7 +15,6 @@ phases:
       - sudo rpm --rebuilddb
       - sudo yum -v update
       - sudo amazon-linux-extras install nginx1.12
-
   build:
     commands:
       - echo build started on $(date) 
