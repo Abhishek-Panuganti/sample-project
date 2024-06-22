@@ -6,8 +6,7 @@ phases:
       - echo "Installing NGINX"
       - sudo yum update -y   # Update packages before installation
       - sudo amazon-linux-extras install -y nginx1.12   # Install NGINX 1.12
-      - sudo service nginx start   # Start NGINX service using 'service' command
-      - sudo chkconfig nginx on  
+      - sudo /usr/sbin/nginx
     commands:
       - echo build started on $(date) 
       - ls -l index.html    # Check if index.html exists and verify its permissions
