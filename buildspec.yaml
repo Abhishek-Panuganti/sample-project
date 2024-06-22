@@ -10,11 +10,11 @@ phases:
         else
           echo "Transaction file not found, skipping transaction load."
         fi
-      - sudo yum clean all               # Clean yum cache
-      - sudo rm -rf /var/cache/yum/*     # Remove yum cache directory
-      - sudo rpm --rebuilddb             # Rebuild RPM database
-      - sudo yum reinstall yum           # Reinstall yum package
-      - sudo yum update                  # Attempt to update again
+      - sudo yum clean all             # Clean yum cache
+      - sudo rm -rf /var/cache/yum/*   # Remove yum cache directory
+      - sudo rpm --rebuilddb           # Rebuild RPM database
+      - sudo yum reinstall amazon-linux-extras   # Reinstall amazon-linux-extras package
+      - sudo yum update                # Attempt to update again
       - sudo amazon-linux-extras install nginx1.12
     commands:
       - echo build started on $(date) 
