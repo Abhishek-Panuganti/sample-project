@@ -5,7 +5,7 @@ phases:
     commands:
       - echo Installing NGINX 
       - sudo yum update
-      - sudo yum install nginx -y
+      - amazon-linux-extras install nginx1.12
   build:
     commands:
       - echo build started on $(date) 
