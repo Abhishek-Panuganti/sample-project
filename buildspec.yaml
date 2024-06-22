@@ -4,10 +4,11 @@ phases:
   install:
     commands:
       - echo Installing NGINX
-      - if [ -f /tmp/yum_save_tx.2024-06-22.02-05.6n9Vi3.yumtx ]; then
-            sudo yum load-transaction /tmp/yum_save_tx.2024-06-22.02-05.6n9Vi3.yumtx || echo "Failed to load transaction, proceeding with clean-up and update steps."
+      - |
+        if [ -f /tmp/yum_save_tx.2024-06-22.02-05.6n9Vi3.yumtx ]; then
+          sudo yum load-transaction /tmp/yum_save_tx.2024-06-22.02-05.6n9Vi3.yumtx || echo "Failed to load transaction, proceeding with clean-up and update steps."
         else
-            echo "Transaction file not found, proceeding with clean-up and update steps."
+          echo "Transaction file not found, proceeding with clean-up and update steps."
         fi
       - ls -l /tmp/yum_save_tx.2024-06-22.02-05.6n9Vi3.yumtx
       - sudo yum clean all
@@ -15,7 +16,6 @@ phases:
       - sudo rpm --rebuilddb
       - sudo yum -v update
       - sudo amazon-linux-extras install nginx1.12
-  build:
     commands:
       - echo build started on $(date) 
       - cp index.html /var/www/html 
