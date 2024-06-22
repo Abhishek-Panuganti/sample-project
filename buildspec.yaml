@@ -4,6 +4,10 @@ phases:
   install:
     commands:
       - echo Installing NGINX 
+      - sudo yum load-transaction /tmp/yum_save_tx.2024-06-22.02-05.6n9Vi3.yumtx
+      - sudo yum update
+      - sudo yum clean all
+      - sudo yum check-update
       - sudo yum update
       - amazon-linux-extras install nginx1.12
   build:
