@@ -3,19 +3,11 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo Installing NGINX
-      - |
-        if [ -f /tmp/yum_save_tx.2024-06-22.02-05.6n9Vi3.yumtx ]; then
-          ls -l /tmp/yum_save_tx.2024-06-22.02-05.6n9Vi3.yumtx
-        else
-          echo "Transaction file not found, skipping transaction load."
-        fi
-      - sudo yum clean all             # Clean yum cache
-      - sudo rm -rf /var/cache/yum/*   # Remove yum cache directory
-      - sudo rpm --rebuilddb           # Rebuild RPM database
-      - sudo yum reinstall amazon-linux-extras   # Reinstall amazon-linux-extras package
-      - sudo yum update                # Attempt to update again
-      - sudo amazon-linux-extras install nginx1.12
+      - echo "Installing NGINX"
+      - sudo yum update -y   # Update packages before installation
+      - sudo amazon-linux-extras install -y nginx1.12   # Install NGINX 1.12
+      - sudo systemctl start nginx   # Start NGINX service
+      - sudo systemctl enable nginx  # Enable NGINX to start on boot
     commands:
       - echo build started on $(date) 
       - ls -l index.html    # Check if index.html exists and verify its permissions
