@@ -18,7 +18,10 @@ phases:
       - sudo amazon-linux-extras install nginx1.12
     commands:
       - echo build started on $(date) 
-      - cp index.html /var/www/html 
+      - ls -l index.html    # Check if index.html exists and verify its permissions
+      - ls -ld /var/www/html    # Check permissions and existence of /var/www/html directory
+      - sudo cp index.html /var/www/html || echo "Failed to copy index.html to /var/www/html"
+
   post_build:
     commands:
       - echo Build completed on $(date)
