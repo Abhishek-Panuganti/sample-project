@@ -18,7 +18,7 @@ phases:
       - echo "Updating packages..."
       - sudo yum update -y
       - echo "Adding NodeSource repository for Node.js 18.x..."
-      - curl -fsSL https://rpm.nodesource.com/setup_18.x | sudo bash -
+      - curl -sL https://rpm.nodesource.com/setup_18.x | sudo bash -
       - echo "Installing Node.js..."
       - sudo yum install -y nodejs
       - node -v
