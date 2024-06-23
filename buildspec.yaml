@@ -18,7 +18,6 @@ phases:
       - echo "Updating packages..."
       - sudo yum update -y
       - echo "Removing existing Node.js (if any)..."
-      - sudo yum remove -y nodejs || true
       - echo "Adding NodeSource repository for Node.js 18.x..."
       - curl -fsSL https://rpm.nodesource.com/setup_18.x | sudo bash -
       - echo "Installing Node.js..."
