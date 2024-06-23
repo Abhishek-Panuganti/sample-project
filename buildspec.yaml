@@ -3,13 +3,32 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo Installing NGINX 
-      - sudo yum update
-      - amazon-linux-extras install nginx1.12
-  build:
+      - echo "Installing NGINX"
+      - sudo yum update -y   # Update packages before installation
+      - sudo amazon-linux-extras install -y nginx1.12   # Install NGINX 1.12
+      - sudo /usr/sbin/nginx
+      - echo "Installing Python"
+      - sudo yum update -y   # Update packages before installation
+      - sudo yum install -y python3   # Install Python 3 (default version)
+      - python3 --version   # Verify Python installation
+      - echo "Installing Java"
+      - sudo yum update -y   # Update packages before installation
+      - sudo amazon-linux-extras install -y java-openjdk11   # Install OpenJDK 11 (example)
+      - java -version   # Verify Java installation
+      - echo "Updating packages..."
+      - sudo yum update -y
+      - echo "Adding NodeSource repository for Node.js 18.x..."
+      - curl -fsSL https://rpm.nodesource.com/setup_18.x | sudo bash -
+      - echo "Installing Node.js..."
+      - sudo yum install -y nodejs
+      - node -v
+
     commands:
       - echo build started on $(date) 
-      - cp index.html /var/www/html 
+      - ls -l index.html    # Check if index.html exists and verify its permissions
+      - ls -ld /var/www/html    # Check permissions and existence of /var/www/html directory
+      - sudo cp index.html /var/www/html || echo "Failed to copy index.html to /var/www/html"
+
   post_build:
     commands:
       - echo Build completed on $(date)
