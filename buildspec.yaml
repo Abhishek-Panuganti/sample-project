@@ -18,7 +18,7 @@ phases:
       - echo "Installing Node.js"
       - sudo yum update -y   # Update packages before installation
       - curl -fsSL https://rpm.nodesource.com/setup_18.x | sudo bash -
-      - sudo yum install -y nodejs   # Install Node.js
+      - sudo yum install nodejs   # Install Node.js
       - node -v   # Verify Node.js installation
 
 
