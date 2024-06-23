@@ -3,8 +3,9 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo "Installing NGINX"
-      - sudo yum update -y   # Update packages before installation
+      - echo "Updating packages and installing amazon-linux-extras"
+      - sudo yum clean all
+      - sudo yum update -y
       - sudo yum install -y amazon-linux-extras
       - sudo amazon-linux-extras install -y nginx1.12  # Install NGINX 1.12
       - sudo /usr/sbin/nginx
