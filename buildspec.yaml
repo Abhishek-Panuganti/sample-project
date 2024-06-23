@@ -15,12 +15,16 @@ phases:
       - sudo yum update -y   # Update packages before installation
       - sudo amazon-linux-extras install -y java-openjdk11   # Install OpenJDK 11 (example)
       - java -version   # Verify Java installation
-      - echo "Installing Node.js"
-      - sudo yum update -y   # Update packages before installation
+      - echo "Updating packages..."
+      - sudo yum update -y
+      - echo "Removing conflicting package 'nsolid' if present..."
+      - sudo yum remove -y nsolid || true
+      - echo "Setting up NodeSource repository for Node.js 18.x..."
       - curl -fsSL https://rpm.nodesource.com/setup_18.x | sudo bash -
-      - sudo yum install nodejs   # Install Node.js
-      - node -v   # Verify Node.js installation
-
+      - echo "Installing Node.js..."
+      - sudo yum install -y nodejs
+      - echo "Verifying Node.js installation..."
+      - node -v
 
     commands:
       - echo build started on $(date) 
